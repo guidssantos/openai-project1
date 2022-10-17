@@ -23,7 +23,7 @@ export function Home() {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Bearer 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"
+        "Bearer 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"
       }
     })
       .then((res) => {
