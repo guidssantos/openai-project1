@@ -1,12 +1,12 @@
 import "./styles.css";
 import { useState } from "react";
 import axios from "axios";
-import { apikey } from "../token";
 
 export function Home() {
 
 
   const [loading, setLoading] = useState(false);
+  const [apikey, setApiKey] = useState('')
   let [obj, setObj] = useState({ choices: [] });
   const [payload, setPayLoad] = useState({
     prompt: "Digite aqui sua pergunta",
@@ -28,7 +28,7 @@ export function Home() {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          `${apikey}`
+          `Bearer ${apikey}`
       }
       
     })
@@ -54,6 +54,7 @@ export function Home() {
     <div className="App">
       <div className="container">
         <div className="d-flex">
+          <textarea type='text' placeholder="Coloque sua api" onChange={(e) => {setApiKey((e.target.value))}}/>
           <div className="col-6 text_wrap">
             <textarea
               type="text"
