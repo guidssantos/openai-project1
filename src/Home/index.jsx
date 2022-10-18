@@ -9,7 +9,7 @@ export function Home() {
   const [apikey, setApiKey] = useState('')
   let [obj, setObj] = useState({ choices: [] });
   const [payload, setPayLoad] = useState({
-    prompt: "Digite aqui sua pergunta",
+    prompt: "",
 
     temperature: 0.8,
     n: 1,
@@ -58,7 +58,7 @@ export function Home() {
           <div className="col-6 text_wrap">
             <textarea
               type="text"
-              placeholder="Enter Text"
+              placeholder="Digite algo"
               readOnly={loading}
               onChange={(e) => {
                 setPayLoad({

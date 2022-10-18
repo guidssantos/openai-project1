@@ -1,1 +1,0 @@
-export const apikey = 'Bearer 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'
