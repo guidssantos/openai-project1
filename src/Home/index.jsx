@@ -1,8 +1,11 @@
 import "./styles.css";
 import { useState } from "react";
 import axios from "axios";
+import { apikey } from "../token";
 
 export function Home() {
+
+
   const [loading, setLoading] = useState(false);
   let [obj, setObj] = useState({ choices: [] });
   const [payload, setPayLoad] = useState({
@@ -13,18 +16,21 @@ export function Home() {
     model: "text-davinci-002",
     max_tokens: 4000
   });
+  
+
 
   const getRes = () => {
     setLoading(true);
     axios({
       method: "POST",
-      url: "https://api.openai.com/v1/completions",
+      url: `https://api.openai.com/v1/completions`,
       data: payload,
       headers: {
         "Content-Type": "application/json",
         Authorization:
-        "Bearer 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"
+          `${apikey}`
       }
+      
     })
       .then((res) => {
         console.log(res);
@@ -42,6 +48,8 @@ export function Home() {
       setLoading(false);
     }
   };
+
+
   return (
     <div className="App">
       <div className="container">
